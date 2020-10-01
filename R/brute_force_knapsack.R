@@ -1,6 +1,3 @@
-
-
-
 knapsack_brute_force <- function(x,W){
   
   n <- nrow(x)
@@ -32,7 +29,4 @@ knapsack_brute_force <- function(x,W){
   
   return(results)
 }
-a <- proc.time()
-knapsack_brute_force(x=knapsack_objects[1:16,],W)
-b <- proc.time()
-b-a
+
