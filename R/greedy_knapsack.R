@@ -20,7 +20,7 @@ greedy_knapsack <- function(x,W){
       i <- i+1
     } else {break}
   }
-  return(list(value=round(value), elementes=items))
+  return(list(value=round(value), elements=items))
 }
 
 

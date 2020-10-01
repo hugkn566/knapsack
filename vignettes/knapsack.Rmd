@@ -46,3 +46,22 @@ b <- proc.time()
 b-a
 ```
 
+
+```{r}
+set.seed(42)
+n <- 1000000
+knapsack_objects_2 <-
+data.frame(
+w=sample(1:4000, size = n, replace = TRUE),
+v=runif(n = n, 0, 10000)
+)
+```
+
+
+```{r}
+a <- proc.time()
+greedy_knapsack(x=knapsack_objects_2[1:1000000,], W=3500)
+b <- proc.time()
+b-a
+```
+
