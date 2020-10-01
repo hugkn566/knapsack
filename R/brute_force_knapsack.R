@@ -1,4 +1,9 @@
+#' Brute force search for knapsack problem
+
 knapsack_brute_force <- function(x,W){
+  stopifnot(is.data.frame(x)==TRUE)
+  stopifnot(names(x)==c("w","v"))
+  stopifnot(x[,1]>0 & x[,2] > 0)
   
   n <- nrow(x)
   results <- list(value=0, elements=c())
@@ -29,4 +34,3 @@ knapsack_brute_force <- function(x,W){
   
   return(results)
 }
-
