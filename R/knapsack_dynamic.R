@@ -1,4 +1,8 @@
 knapsack_dynamic <- function(x,W){
+  stopifnot(is.data.frame(x)==TRUE)
+  stopifnot(names(x)==c("w","v"))
+  stopifnot(x[,1]>0 & x[,2] > 0)
+  stopifnot(W > 0)
   n <- nrow(x)
   m <- matrix(0, nrow=n+1, ncol=W)
   for (i in 2:(n+1)){

@@ -1,6 +1,10 @@
 
 
 greedy_knapsack <- function(x,W){
+  stopifnot(is.data.frame(x)==TRUE)
+  stopifnot(names(x)==c("w","v"))
+  stopifnot(x[,1]>0 & x[,2] > 0)
+  stopifnot(W > 0)
   x$ratio <- x$v / x$w
   x <- x[order(x$ratio, decreasing = TRUE),]
   
