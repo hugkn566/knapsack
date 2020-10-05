@@ -1,4 +1,4 @@
-#' Optimized brute force search for knapsack problem
+#' Brute force search for knapsack problem
 #' 
 #' @param x An object of data.frame with 2 columns with colnames w and v.
 #' @param W A single positive value.
@@ -11,9 +11,9 @@
 #'    w=sample(1:4000, size = n, replace = TRUE),
 #'    v=runif(n = n, 0, 10000)
 #'  ) 
-#' results <- brute_force_knapsack(x = knapsack_objects[1:8,], W=3500)
+#' results <- brute_force_knapsack_unopt(x = knapsack_objects[1:8,], W=3500)
 #' @export
-brute_force_knapsack <- function(x,W){
+brute_force_knapsack_unopt <- function(x,W){
   stopifnot(is.data.frame(x)==TRUE)
   stopifnot(names(x)==c("w","v"))
   stopifnot(x[,1]>0 & x[,2] > 0)
@@ -36,7 +36,6 @@ brute_force_knapsack <- function(x,W){
     for (row in 1:n) {
       if(bitmat[row,col]==1){
         weights <- weights + x[row,1]
-        if(weights > W){break}
         values <- values + x[row,2]
         items <- c(items, row)
       }
