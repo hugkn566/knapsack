@@ -1,6 +1,6 @@
 #' Brute force search for knapsack problem
 
-brute_force_knapsack <- function(x,W){
+brute_force_knapsack_unopt <- function(x,W){
   stopifnot(is.data.frame(x)==TRUE)
   stopifnot(names(x)==c("w","v"))
   stopifnot(x[,1]>0 & x[,2] > 0)
