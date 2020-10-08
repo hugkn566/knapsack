@@ -1,5 +1,5 @@
 ---
-title: "knapsack"
+title: "lap_report_knapsack"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{knapsack}
@@ -114,7 +114,17 @@ The optimized brute force search takes `r (b-a)[3]` seconds to complete with 16 
 
 # 1.1.8 Parallelize brute force search
 
-```{r}
+When adding parallelization to the brute force function it allows the function to split up the search across multiple cores. The parallel part of the function is shown below: 
 
+```{r, eval=FALSE}
+ if(parallel == TRUE) {
+    n_cores <- parallel::detectCores()
+    clust <- parallel::makeCluster(n_cores)
+    results <- parallel::parLapply(cl = clust, 1:2^nrow(x)-1, fun = search_func)
+    parallel::stopCluster(clust)
+    return(results[[1]])
+  }
 ```
+
+For some reason however this seems to scale worse than the non-parallel function, slowing down much faster as the amount of data increases. We are not sure why this is the case, but might be due to some problem in the original search function. 
 

@@ -1,15 +1,22 @@
 Package: knapsack
-Type: Package
-Title: What the package does (short line)
+Title: Solving knapsack problem
 Version: 1.0
 Date: 2020-09-30
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Authors@R: c(person("Hugo", "Knape", role = c("aut", "cre"),
+                     email = "hugkn566@student.liu.se"),
+              person("Otto", "Moen", email = "ottmo242@student.liu.se", role = "aut"))
+Author: Hugo Knape, Otto Moen 
+Maintainer: Otto Moen <ottmo242@student.liu.se>
+Depends: R (>= 3.1.0)
+Description: The package provides different functions to solve the knapsack problem.
+License: GPL (>= 2)
 Suggests: 
     knitr,
     rmarkdown,
     testthat
+Imports:
+    qpdf
 VignetteBuilder: knitr
 RoxygenNote: 7.1.1
+
+
